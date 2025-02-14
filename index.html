@@ -57,42 +57,47 @@
         </audio>
     </div>
     <script>
-        function toggleLetter() {
-            var letter = document.getElementById("letter");
-            var music = document.getElementById("music");
-            var question = document.getElementById("question");
-            if (letter.style.display === "none") {
-                letter.style.display = "block";
-                music.play();
-                setTimeout(() => { question.style.display = "block"; }, 2000);
-            } else {
-                letter.style.display = "none";
-                music.pause();
-                question.style.display = "none";
-            }
-        }
+    document.addEventListener("DOMContentLoaded", function() {
+        var music = document.getElementById("music");
+        music.play();
+    });
 
-        function answerYes() {
-            alert("You + Me = Perfect Match. Shall we make it official?");
+    function toggleLetter() {
+        var letter = document.getElementById("letter");
+        var music = document.getElementById("music");
+        var question = document.getElementById("question");
+        if (letter.style.display === "none") {
+            letter.style.display = "block";
+            music.play();
+            setTimeout(() => { question.style.display = "block"; }, 2000);
+        } else {
+            letter.style.display = "none";
+            music.pause();
+            question.style.display = "none";
         }
-        
-        function answerNo() {
-            alert("เฮ้อ เซงเป่ด");
-        }
+    }
 
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-            document.body.appendChild(heart);
-            setTimeout(() => {
-                heart.remove();
-            }, 4000);
-        }
+    function answerYes() {
+        alert("You + Me = Perfect Match. Shall we make it official?");
+    }
+    
+    function answerNo() {
+        alert("เฮ้อ เซงเป่ด");
+    }
 
-        setInterval(createHeart, 500);
-    </script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+
+    setInterval(createHeart, 500);
+</script>
 </body>
 </html>
